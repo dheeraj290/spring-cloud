@@ -14,6 +14,7 @@ import de.codecentric.boot.admin.config.EnableAdminServer;
 public class EurekaAdminApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(EurekaAdminApplication.class, args);
 	}
 }
