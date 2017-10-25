@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +18,7 @@ import pl.piomin.microservices.account.intercomm.AccountClient;
 import pl.piomin.microservices.account.model.Account;
 
 @RestController
+@RefreshScope
 public class ApiController {
 
 	@Autowired
@@ -24,6 +27,9 @@ public class ApiController {
 	private List<Account> accounts;
 	
 	protected static Logger logger = LoggerFactory.getLogger(ApiController.class.getName());
+	
+	@Value("${test-message}")
+	private String temp;
 	
 	public ApiController() {
 		accounts = new ArrayList<>();
@@ -54,6 +60,7 @@ public class ApiController {
 	
 	@RequestMapping(value = "/accounts",method = RequestMethod.GET)
 	public List<Account> findAll() {
+		System.out.println("the value is ====="+temp);
 		logger.info("Account.findAll()");
 		logger.info(String.format("Account.findAll: %s", accounts));
 		accountClient.findAll();

@@ -9,3 +9,7 @@ eureka:
     fetchRegistry: false
   server:
     enableSelfPreservation: false  
+    
+spring:
+  profiles:
+    active: native
