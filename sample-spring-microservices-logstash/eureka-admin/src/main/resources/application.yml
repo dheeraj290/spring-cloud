@@ -1,3 +1,8 @@
+spring:
+  application:
+    name: eureka-admin
+
+
 eureka:
   client:
     registryFetchIntervalSeconds: 5
@@ -14,3 +19,12 @@ management:
     
 server:
   port: 9091
+  
+  
+security:
+  user:
+    name: admin
+    password: admin
+    
+    
+#spring.boot.admin.routes.endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,login

@@ -6,7 +6,7 @@ spring:
   application:
     name: account-service
   profiles:
-    active: native
+    active: dev
   
 eureka:  
   client:
